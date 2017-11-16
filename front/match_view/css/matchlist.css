@@ -1,0 +1,25 @@
+header {
+	border-bottom: 5px solid black;
+}
+
+article {
+	border: 5px solid orange;
+	height: 500px;
+}
+
+section div {
+	border: 3px solid gray;
+	width: 50%;
+	margin: auto;
+	text-align: center;
+}
+
+#category {
+	height: 100px;
+	text-align: center;
+	border-bottom: 5px dotted green;
+}
+
+footer {
+	border-top: 5px solid black;
+}
