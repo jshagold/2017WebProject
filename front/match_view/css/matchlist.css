@@ -11,8 +11,13 @@ section div {
 	border: 3px solid gray;
 	width: 50%;
 	margin: auto;
-	margin-top: 10%;
 	text-align: center;
+}
+
+#category {
+	height: 100px;
+	text-align: center;
+	border-bottom: 5px dotted green;
 }
 
 footer {
