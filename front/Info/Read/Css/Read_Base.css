@@ -1,0 +1,27 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+header {
+	line-height: 0px;
+	overflow: hidden;
+	background-color: #093819;
+}
+
+header a {
+	float: left;
+}
+
+header form {
+	text-align: center;
+}
+
+.main {
+	padding: 0px;
+	margin: auto;
+	width: 80%;
+	height: 600px;
+	overflow: hidden;
+	background-color: black;
+}
