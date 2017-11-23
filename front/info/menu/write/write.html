@@ -1,38 +1,123 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
+
+<!--https://www.w3schools.com/bootstrap/bootstrap_forms.asp  form형식 바꿀때 사용-->
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="./css/write.css" type="text/css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./css/write.css">
     <title>Write Page</title>
 </head>
 <body>
-<header>
-    <a href="../../../main.html"><img src="../../../image/포기하면편해.png" alt="hi"/></a>
-</header>
-<article>
-    <h1>제목</h1>
-    <input type="text" name="new_write" size="40" maxlength="40"/>
-    <hr/>
-    <h2>글 쓰기</h2>
-    음식종류:
-    <select name="menu">
-        <option>한식</option>
-        <option>중식</option>
-        <option>일식</option>
-        <option>분식</option>
-        <option>양식</option>
-    </select>
-    가격:
-    <input type="text" name="price" size="5" maxlength="5"/>원
-    메뉴이름:
-    <input type="text" name="menuname" size="15" maxlength="30"/>
-    식당이름:
-    <input type="text" name="restaurant" size="30" maxlength="40"/>
-    <hr/>
-    <textarea rows="25" cols="110">
-        추가 적으로 설명할 글을 쓰세요!
-    </textarea>
-</article>
+    <header>
+        <a href="../../../main.html"><img src="../../../image/포기하면편해.png" alt="hi"/></a>
+    </header>
+    <br />
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+                <a class="navbar-brand" href="#">글쓰기</a>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">글쓰기</a></li>
+                <li><a href="#">메인화면</a></li>
+                <li><a href="#">매칭화면</a></li> 
+                <li><a href="#">게시판</a></li>
+                <li><a href="#">정보</a></li> 
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <article>
+        <!--글쓰기 과정 게시판 확인 등 과정을 진행 퍼센트 바 로 보여주면 좋을 듯 width로 파란색 바 움직이기 가능-->
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                글쓰기
+            </div>
+        </div>
+        <!--container-fluid 들여쓰기 해주고 이뻐보이게 해줌 -->
+        <div class="container-fluid">
+            <!--well은 회색 배경색과 약간의 패딩이있는 상태로 주어진다. well size로 패딩 변경 가능한 듯 -->
+            <div class="well">
+                <h1><kbd>제목</kbd></h1>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="제목을 입력하세요.">
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="well">
+                <h1><kbd>글 쓰기</kbd></h1>
+                <!--list-group으로 각 필터들을 나눠서 표현 -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        음식종류:
+                        <select name="menu">
+                            <option>한식</option>
+                            <option>중식</option>
+                            <option>일식</option>
+                            <option>분식</option>
+                            <option>양식</option>
+                        </select>
+                    </li>
+                    <li class="list-group-item">
+                        가격:   
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="ex)3000">
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        메뉴이름:
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="ex)고구마치즈돈까스">
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        식당이름:
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="ex)창보센">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="well">
+                추가로 입력하실 사항이 있다면 입력바랍니다.
+                <textarea rows="10" cols="33">
+
+                </textarea>
+            </div>
+            <div class="alert alert-success alert-dimissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>제대로</strong> 글을 작성하셨는지 다시한번 확인해 주시기 바랍니다!
+            </div>
+        </div>
+        <div class="container-fluid">
+            <!--전 화면 돌아가는 버튼, 제출 버튼 -->
+            <ul class="pager">
+                <li class="previous"><a href="#">전 화면으로</a></li>
+                <li class="next"><a href="#">글작성완료</a></li>
+            </ul>
+        </div>
+    </article>
 </body>
 </html>
+
+<!--https://www.w3schools.com/bootstrap/bootstrap_button_groups.asp  버튼 그룹 만드는 와삼스쿨
+    빠른 매칭할때 쓰면 좋을 듯
+-->
