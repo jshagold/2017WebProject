@@ -18,4 +18,4 @@
 				}, 500);
 				//$("article").bind("mouseenter", toggleAisde);
 			}
-		}.
+		}
