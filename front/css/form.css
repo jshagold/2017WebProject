@@ -9,7 +9,7 @@
 			width: 0%;
 			position: fixed;
 			z-index: 1;
-			top: 7%;
+			top: 10%;
 			left: 0%;
 			background-color: rgb(22, 22, 22);
 			overflow-x: hidden;
@@ -17,24 +17,25 @@
 		}
 
 		.openaside {
-			width: 70%;
+			width: 250px;
 		}
 
 		aside a {
 			font-size: 20pt;
-			color: #818181;
+			color: #cac8c8;
 			display: block;
 		}
 
 		header {
 			width: 100%;
-			height: 7%;
+			height: 10%;
 			position: fixed;
 			top: 0%;
 			left: 0%;
 			line-height: 0px;
 			overflow: hidden;
 			background-color: rgb(50, 50, 50);
+			text-align: center;
 		}
 
 		header * {
@@ -43,17 +44,16 @@
 		}
 
 		header>img {
-			float: left;
-		}
-
-		header a {
-			float: right;
+			height: 100%;
+			position: absolute;
+			top: 0%;
+			left: 0%;
 		}
 
 		article {
 			position: fixed;
-			top: 7%;
-			height: 93%;
+			top: 10%;
+			height: 90%;
 			width: 100%;
 			background-color: rgb(255, 255, 255);
 			overflow: auto;
