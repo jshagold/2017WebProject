@@ -2,24 +2,27 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
       xmlns="http://www.w3.org/1999/html">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <title>그 밥 사</title>
+    <link href="./css/joing_user.css" type="text/css" rel="stylesheet"/>
+    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 
 <header>
-    <a href="./login.html"><img src="../image/포기하면편해.png" alt="Go main page"></a><!--code-->
+    <a href="./login.html"><img src="../image/포기하면편해.png"> </a><!--code-->
 </header>
 
 
 <article>
-    <h1></h1>
+    <h1>회원가입</h1>
     <form action="Joing_User.html">
-        email : <input name="J_eamil"/><button>인증</button><!-- JS 버튼 --></br>
-        <input name="number"/></br><!--인증버튼을 누를 시 보여주기-->
-        password : <input name="J_password"/></br>
-        password 확인 : <input name="re_password"/></br>
-        닉네임 : <input name="Nickname"/></br>
+        <div class="form-group">email : <input class="form-control" name="J_eamil"/><!--<button>인증</button> JS 버튼 --></div>
+        <!--<div class="form-group"><input class="form-control" name="number"/>&lt;!&ndash;인증버튼을 누를 시 보여주기&ndash;&gt;</div>-->
+        <div class="form-group">password : <input class="form-control" name="J_password"/></div>
+        <div class="form-group">password 확인 : <input class="form-control" name="re_password"/></div>
+        <div class="form-group">닉네임 : <input class="form-control" name="Nickname"/></div>
         <input type="submit" value="가입"/>
     </form>
 
