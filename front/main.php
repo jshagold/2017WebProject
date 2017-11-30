@@ -13,6 +13,12 @@
 </head>
 
 <body>
+	<?php
+
+	$old_user = $_POST["email"]; // 원래 회원 이메일
+	$new_user = $_POST["jEmail"]; // 새로 가입한 이메일
+	
+	?>
 	<header>
 		<img src="./image/menu_icon.png" id="asidebtn" />
 		<a href="./main.html">
@@ -23,15 +29,17 @@
 	<aside>
 		<a href="./match_view/fastmatch.html">매칭</a>
 		<a href="./info/menu/info_menu.html">음식점정보</a>
-		<a href="./login/login.php">로그인</a>
+		<a href="./login/login.php">로그아웃</a>
+
 	</aside>
-
-	<article>
-		<ul>
-			<li>Input Elements</li>
-		</ul>
-
-	</article>
+	<form action = <?= $hi ?> method="post">
+		<article>
+			<ul>
+				<li>Input Elements</li>
+			</ul>
+			<button type = "submit">랜덤매칭</button>
+			<button type = "submit">선택매칭</button>
+		</article>
+	</form>
 </body>
-
 </html>
