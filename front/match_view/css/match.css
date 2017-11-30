@@ -1,0 +1,39 @@
+article {
+    color: white;
+    text-align: center;
+}
+
+section {
+    width: 100%;
+    margin: 0px;
+    height: 33.33%;
+    background-color: #3d3b3b;
+    transition: 0.5s;
+    font-size: 25pt;
+}
+
+.match {
+    width: 100%;
+    height: 0%;
+    background-color: white;
+    transition: 0.5s;
+    overflow: hidden;
+    color: black;
+}
+.openmatch {
+    height: 90%;
+    transition: 0.5s;
+}
+.closesection {
+    height: 10%;
+    transition: 0.5s;
+}
+.hidesection {
+    height: 0%;
+    transition: 0.5s;
+}
+
+article a:link, article a:visited, article a:hover {
+    color: white;
+    text-decoration: none;
+}
