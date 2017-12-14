@@ -1,0 +1,78 @@
+form {
+    height: 100%;
+    background-color: #726c6c;
+}
+button, button:hover,
+button:active, button:focus {
+    border: none;
+    border-radius: 0;
+    outline: none;
+}
+.matchcategory {
+    height: 10%;
+    overflow: hidden;
+}
+.matchcategory button {
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-color: #505050;
+}
+.foodcategory {
+    height: 10%;
+    overflow: hidden;
+}
+.foodcategory button {
+    float: left;
+    width: 12.5%;
+    height: 100%;
+    background-color: #505050;
+}
+.btnclick {
+    background-color: #333030 !important;
+}
+.pricecategory {
+    height: 10%;
+    overflow: hidden;
+}
+.pricecategory p {
+    width: 20%;
+    height: 100%;
+    background: #505050;
+    float: left;
+}
+.pricecategory select {
+    margin: 0px;
+    padding: 0px;
+    width: 30%;
+    height: 100%;
+    background: #505050;
+    float: left;
+    border: none;
+    border-radius: 0;
+    outline: none;
+}
+.daycategory {
+    width: 100%;
+    height: 10%;
+    overflow: hidden;
+    background-color: #505050;
+}
+.daycategory input {
+    width: 33.3%;
+    height: 100%;
+    float: left;
+    background-color: #505050;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    text-align: center;
+}
+form>input {
+    width: 100%;
+    height: 10%;
+    background-color: #505050;
+    border: none;
+    border-radius: 0;
+    outline: none;
+}
