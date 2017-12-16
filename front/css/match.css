@@ -1,0 +1,88 @@
+form {
+    height: 100%;
+    background-color: #726c6c;
+}
+button, button:hover,
+button:active, button:focus {
+    border: none;
+    border-radius: 0;
+    outline: none;
+}
+form>div {
+    width: 100%;
+    height: 10%;
+    overflow: hidden;
+    background-color: #505050;
+}
+form>div * {
+    background-color: #505050;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    height: 100%;
+}
+
+.matchcategory button {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.foodcategory button {
+    float: left;
+    width: 11.1%;
+    height: 100%;
+}
+.btnclick {
+    background-color: #333030 !important;
+}
+
+.peoplacategory p {
+    width: 20%;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+.peoplacategory p span {
+    position: relative;
+    top: 25%;
+}
+.peoplacategory select {
+    margin: 0px;
+    padding: 0px;
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+.rescategory p {
+    width: 20%;
+    float: left;
+    text-align: center;
+}
+.rescategory p span {
+    position: relative;
+    top: 25%;
+}
+.rescategory select {
+    width: 80%;
+    float: left;
+}
+
+.daycategory input {
+    width: 30%;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+#meetday {
+    width: 40%;
+    text-align: right;
+}
+form>input {
+    width: 100%;
+    height: 10%;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    background-color: #505050;
+}
