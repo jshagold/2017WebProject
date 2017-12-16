@@ -4,6 +4,12 @@ window.onload = function() {
     InitAside();
 };
 
+function InitMain() {
+    $("article>section:first-child").bind("click", ToggleMatchMenu);
+    $("article>section:nth-child(4)").bind("click", ToggleInfoMenu);
+    InitAside();
+}
+
 function ToggleMatchMenu() {
     $(".match").toggleClass("openmatch");
     $("article section:first-child").toggleClass("closesection");
