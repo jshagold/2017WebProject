@@ -7,19 +7,24 @@ window.onload = function() {
         $(foodCategory[i]).bind("click", FoodClick);
     }
     
-    $("#minprice").bind("change", ChangePrice);
-    $("#maxprice").bind("change", ChangePrice);
+    $("#maxpeople").bind("change", PeoplePlace);
+    $("#place").bind("change", PeoplePlace);
 
     $("#meetday").bind("change", ChangeDay);
     $("#starttime").bind("change", ChangeDay);
     $("#endtime").bind("change", ChangeDay);
-    
+    $("#meetday").val(new Date().toISOString().slice(0,10));
+
+    $("form>input").bind("click", MatchClick);
+    //$("form>input").attr("disabled", false);
+
     $(".foodcategory").hide();
-    $(".pricecategory").hide();
+    $(".peoplacategory").hide();
+    $(".rescategory").hide();
     $(".daycategory").hide();
     $("form>input").hide();
     InitMain();
-    SetPrice();
+    SetPeoPla();
 };
 function InitMatch() {
     InitMain();
@@ -29,8 +34,9 @@ function FastClick() {
     $("#fastbtn").addClass("btnclick");
     $("#reservebtn").removeClass("btnclick");
     $(".foodcategory").slideDown();
-    if($("form>input").css("display") != "none") {
+    if($(".daycategory").css("display") != "none") {
         $(".daycategory").slideUp();
+        $("form>input").slideDown();
     }
     //$(".daycategory").slideUp();
 }
@@ -40,6 +46,8 @@ function ReserveClick() {
     $(".foodcategory").slideDown();
     if($("form>input").css("display") != "none") {
         $(".daycategory").slideDown();
+        $("form>input").slideUp();
+        ChangeDay();
     }
 }
 function FoodClick() {
@@ -48,42 +56,52 @@ function FoodClick() {
         $(foodCategory[i]).removeClass("btnclick");
     }
     $(this).addClass("btnclick");
-    $(".pricecategory").slideDown();
+    $(".peoplacategory").slideDown();
 }
-function SetPrice() {
-    var minPrice = $("#minprice");
-    var maxPrice = $("#maxprice");
+function SetPeoPla() {
+    var maxPeople = $("#maxpeople");
+    var place = $("#place");
 
-    for(var i=3; i <= 10; i++) {
-        var minOption = document.createElement("option");
-        minOption.appendChild(document.createTextNode(i * 1000));
-        minPrice.append(minOption);
+    for(var i=2; i <= 6; i++) {
         var maxOption = document.createElement("option");
-        maxOption.appendChild(document.createTextNode(i * 1000));
-        maxPrice.append(maxOption);
+        maxOption.appendChild(document.createTextNode(i));
+        maxPeople.append(maxOption);
     }
-    var minOption = document.createElement("option");
-    minOption.appendChild(document.createTextNode("상관없음"));
-    minPrice.append(minOption);
-
     var maxOption = document.createElement("option");
     maxOption.appendChild(document.createTextNode("상관없음"));
-    maxPrice.append(maxOption);
+    maxPeople.append(maxOption);
 }
 
-function ChangePrice() {
-    $(this).find(":first-child").remove();
-    var minPrice = $("#minprice").find(":first-child").text();
-    var maxPrice = $("#maxprice").find(":first-child").text();
+function PeoplePlace() {
+    if($(this).find(":first-child").text() === "최대인원선택" || 
+        $(this).find(":first-child").text() === "장소선택" ) {
+        $(this).find(":first-child").remove();
+    }
 
-    if(minPrice == 3000 && maxPrice == 3000) {
+    var maxPeople = $("#maxpeople").find(":first-child").text();
+    var place = $("#place").find(":first-child").text();
+
+    if(maxPeople == 2 && place === "학교앞") {
         if($("#reservebtn").hasClass("btnclick")) {
             $(".daycategory").slideDown();
         }
-        $("form>input").slideDown();
+        else {
+            $("form>input").slideDown();
+        }
+        $(".rescategory").slideDown();
     }
 }
 
 function ChangeDay() {
-    //console.log($("#meetday").value);
+    if(!$("#starttime").val() == "" && 
+        !$("#endtime").val() == "" ) {
+            $("form>input").slideDown();
+        }
+}
+
+function MatchClick() {
+    if($("#minprice").val() > $("#maxprice").val() || 
+        $("#starttime").val() > $("#endtime").val()) {
+            
+        }
 }

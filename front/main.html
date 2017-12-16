@@ -25,9 +25,7 @@
     </header>
 
     <aside>
-        <a href="./match_view/match.html">매칭</a>
-        <a href="./info/menu/info_menu.html">음식점정보</a>
-        <a href="./login/login.html">로그인</a>
+        <a href="./login/login.html">로그아웃</a>
     </aside>
 
     <article>
@@ -41,6 +39,7 @@
                     <button type="button" id = "reservebtn">예약매칭</button>
                 </div>
                 <div class="foodcategory">
+                    <button type="button" id = "all">무관</button>
                     <button type="button" id = "korea">한식</button>
                     <button type="button" id = "china">중식</button>
                     <button type="button" id = "japan">일식</button>
@@ -50,14 +49,26 @@
                     <button type="button" id = "piz">피자</button>
                     <button type="button" id = "other">기타</button>
                 </div>
-                <div class="pricecategory">
-                    <p>가격</p>
-                    <select id="minprice">
-                        <option>최소가격선택</option>
+                <div class="peoplacategory">
+                    <p><span>인원</span></p>
+                    <select id="maxpeople">
+                        <option>최대인원선택</option>
                     </select>
-                    <p> ~ </p>
-                    <select id="maxprice">
-                        <option>최대가격선택</option>
+                    <p><span>장소</span></p>
+                    <select id="place">
+                        <option>장소선택</option>
+                        <option>학교앞</option>
+                        <option>한대앞역</option>
+                        <option>중악역</option>
+                        <option>상관없음</option>
+                    </select>
+                </div>
+                <div class="rescategory" >
+                    <p><span>음식점</span></p>
+                    <select id="res">
+                        <option>상관없음</option>
+                        <option>알촌</option>
+                        <option>한우궁</option>
                     </select>
                 </div>
                 <div class="daycategory">
@@ -65,10 +76,10 @@
                     <input type="time" id="starttime">
                     <input type="time" id="endtime">
                 </div>
-                <input type="submit" value="매칭" />
+                <input type="submit" value="매칭"/>
             </form>
         </div>
-        <a href="./match_view/matchlist.html">
+        <a href="./list.html">
             <section>
                 <span class="middlespan">대기줄</span>
             </section>
@@ -77,10 +88,10 @@
             <span class="middlespan">정보</span>
         </section>
         <div class="info">
-            <a href="./info/menu/read/read.html">
+            <a href="./info/read/read.html">
                 <section>인증 정보</section>
             </a>
-            <a href="./info/menu/read/read.html">
+            <a href="./info/read/read.html">
                 <section>비인증 정보</section>
             </a>
         </div>
