@@ -5,17 +5,24 @@ create table user(
     score float(2,1)
 );
 
+create table category(
+    id int auto_increment primary key,
+    food_category varchar(10) not null unique
+);
+
 create table restaurant(
 	id int auto_increment primary key,
     name varchar(50) not null unique,
     business_hour varchar(50),
-    score float(2,1)
+    score float(2,1),
+    category_id int,
+    foreign key (category_id) references category(id)
 );
 
-create table category(
-	id int auto_increment primary key,
-    food_category varchar(10) not null unique,
+create table foodmenu(
     restaurant_id int,
+    menu varchar(20),
+    cost int,
     foreign key (restaurant_id) references restaurant(id)
 );
 

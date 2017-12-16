@@ -15,6 +15,12 @@
 </head>
 
 <body>
+    <?php
+        $host = 'localhost:3307';
+        $db = new PDO("mysql:host=$host;dbname=webproject;", "root", "root");
+        $rows= $db->query("$query");
+        ?>
+
     <header>
         <img src="./image/menu_icon.png" id="asidebtn" />
         <a href="./main.html">
@@ -31,7 +37,7 @@
     <article>
         <section><span class="middlespan">매칭</span></section>
         <div class="match">
-            <form action="php/main.php">
+            <form action="#">
                 <div>
                     항목 체크
                 </div>
@@ -47,9 +53,6 @@
                     음식종류
                     <br>
                     <input type="radio" name="food" value="Korean" />한식
-                    <input type="radio" name="food" value="Japanese" />일식
-                    <input type="radio" name="food" value="Chinese" /> 중식
-                    <input type="radio" name="food" value="all" /> 암거나
                 </div>
 
                 <!-- 음식종류 하위태그 -->
