@@ -186,8 +186,8 @@ var maxPeople;
 var restaurant;
 var foodCategory;
 var meetDay;
-var meetSTime;
-var meetETime;
+var sTime;
+var eTime;
 var oneText;
 
 function MatchClick() {
@@ -195,8 +195,8 @@ function MatchClick() {
     restaurant = j$("#res").val();
     maxPeople = j$("#maxpeople").val();
     meetDay = j$("#meetday").val();
-    meetSTime = j$("#starttime").val();
-    meetETime = j$("#endtime").val();
+    sTime = j$("#starttime").val();
+    eTime = j$("#endtime").val();
     oneText = j$("#text").val();
 
     /*console.log(foodCategory);
