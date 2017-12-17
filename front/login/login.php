@@ -1,41 +1,29 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
+<?php
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <title>그 밥 사</title>
-    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet"/>
-    <link href="./css/login.css" type="text/css" rel="stylesheet"/>
-    <script src = "../js/login.js" type="text/javascript"></script>
-</head>
-<body>
-    <header>  <!--위에 공간-->
-        <a href="./login.php"></a><!--code-->
-    </header>
-    <article>
-        <div id="main"><h1>LOG IN</h1><!--asdfghgfdsa-->
+$email = $_POST['email'];
+$password = $_POST['password'];
 
 
-            <form action="../main.php" method="post">
+$db_host = "localhost";
+$db_user = "root";
+$db_passwd = "root";
+$db_name = "webproject";
+$DB = mysqli_connect("$db_host","$db_user","$db_passwd","$db_name");
 
-                <button class="btn btn-primary back" type = "submit" id = 'button'>로그인</button>
-                <div class="form-group">이메일 <input class="form-control impor" type="email" id = "id" name= "email"/></div>
-                <div class="form-group">비밀번호 <input class="form-control impor" type="password" id = "password" name="password"/></div>
+$sql = "select email from user where email = '$email' and pw = '$pw'";
+$sql2 = "select pw from user where pw = '$pw' and email = '$email'";
 
-              
-             
+$result = mysqli_query($DB,$sql);
 
-        </form>
-        <a href="Joing_User.php">회원가입</a>
-        <a href="Find_email.php">password 찾기</a></div>
-
-    </article>
+$result2 = mysqli_query($DB,$sql2);
 
 
-    <footer><!--밑에 공간-->
-        <!--code-->
-    </footer>
 
-</body>
-</html>
+// 로그인 
+if (mysqli_num_rows($result2) == 0 || mysqli_num_rows($result) == 0){
+
+    header("location:../main.html");
+} else {
+    header("location:./login.html");    
+}
+?>  
