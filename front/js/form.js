@@ -1,6 +1,13 @@
+
+var userImage;
+var userName;
+var userEmail;
+
 window.onload = function () {
 	j$("#asidebtn").bind("click", ToggleAisde);
 	//$("#asidebtn").bind("mouseenter", toggleAisde);
+
+	InitUserInfo();
 };
 
 function InitAside() {
@@ -27,13 +34,12 @@ function ToggleAisde() {
 	}
 }
 
-var userName;
-var userEmail;
-
 function InitUserInfo() {
+	userImage = "./image/maintitle3.png";
 	userName = "강동혁";
 	userEmail = "kdh950812@nate.com"
 
-	j$("#userName").text(userName);
-	j$("#userEmail").text(userEmail);
+	j$("#userimage").attr("src", userImage);
+	j$("#username").text(userName);
+	j$("#useremail").text(userEmail);
 }
