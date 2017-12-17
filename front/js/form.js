@@ -5,6 +5,8 @@ window.onload = function () {
 
 function InitAside() {
 	j$("#asidebtn").bind("click", ToggleAisde);
+
+	InitUserInfo();
 }
 
 function ToggleAisde() {
@@ -23,4 +25,15 @@ function ToggleAisde() {
 		}, 500);
 		//$("article").bind("mouseenter", toggleAisde);
 	}
+}
+
+var userName;
+var userEmail;
+
+function InitUserInfo() {
+	userName = "강동혁";
+	userEmail = "kdh950812@nate.com"
+
+	j$("#userName").text(userName);
+	j$("#userEmail").text(userEmail);
 }

@@ -38,12 +38,18 @@ window.onload = function() {
     j$(".daycategory").hide();
     j$(".textcategory").hide();
     j$("form>input").hide();
+
+    InitFoodCategory();
+    //InitResCategory();
+
     InitMain();
     SetPeople();
 };
 function InitMatch() {
     InitMain();
 }
+
+var showLevel = 0;
 
 function FastClick() {
     j$("#fastbtn").addClass("btnclick");
@@ -68,6 +74,7 @@ function FoodClick() {
     if(j$(this).find(":first-child").text() === "선택해주세요") {
         j$(this).find(":first-child").remove();
     }
+    InitResCategory();
     j$(".rescategory").slideDown();
 }
 function ResClick() {
@@ -75,6 +82,13 @@ function ResClick() {
         j$(this).find(":first-child").remove();
     }
     j$(".peocategory").slideDown();
+    if(showLevel == 1) {
+        if(j$("#reservebtn").hasClass("btnclick")) {
+            j$(".daycategory").slideDown();
+            j$(".textcategory").slideDown();
+        }
+        j$("form>input").slideDown();
+    }
 }
 function SetPeople() {
     var maxPeoples = j$("#maxpeople");
@@ -99,7 +113,73 @@ function People() {
             j$(".textcategory").slideDown();
         }
         j$("form>input").slideDown();
+        showLevel = 1;
     }
+}
+
+var foodCategoryArr = new Array();
+var restaurantArr = new Array();
+function InitFoodCategory() {
+    foodCategoryArr.push("한식");
+    foodCategoryArr.push("분식");
+    foodCategoryArr.push("일식");
+    foodCategoryArr.push("중식");
+
+    var foodSelect = j$("#food");
+    for(var i=0; i < foodCategoryArr.length; i++) {
+        var newOption = document.createElement("option");
+        newOption.appendChild(
+            document.createTextNode(foodCategoryArr[i]));
+        foodSelect.append(newOption);
+    }
+}
+function InitResCategory() {
+    var resOptions = j$("#res option");
+    for(var i=0; i < resOptions.length; i++) {
+        j$(resOptions[i]).remove();
+    }
+    newOption = document.createElement("option");
+    newOption.appendChild(
+        document.createTextNode("선택해주세요"));
+    j$("#res").append(newOption);
+    newOption = document.createElement("option");
+    newOption.appendChild(
+        document.createTextNode("상관없음"));
+    j$("#res").append(newOption);
+
+    restaurantArr.clear();
+
+    var foodSelect = j$("#food").val();
+
+    if(foodSelect == "한식") {
+        restaurantArr.push("한우궁");
+        restaurantArr.push("들녘");
+    }
+    if(foodSelect == "중식") {
+        restaurantArr.push("행짬");
+        restaurantArr.push("짜클");
+    }
+    if(foodSelect == "분식") {
+        restaurantArr.push("빅보이");
+        restaurantArr.push("스낵");
+    }
+    if(foodSelect == "일식") {
+        restaurantArr.push("취해");
+        restaurantArr.push("송쉪");
+    }
+
+    var resSelect = j$("#res");
+    for(var i=0; i < restaurantArr.length; i++) {
+        var newOption = document.createElement("option");
+        newOption.appendChild(
+            document.createTextNode(restaurantArr[i]));
+            resSelect.append(newOption);
+    }
+
+    j$(".peocategory").slideUp();
+    j$(".daycategory").slideUp();
+    j$(".textcategory").slideUp();
+    j$("form>input").slideUp();
 }
 
 var maxPeople;
@@ -127,3 +207,5 @@ function MatchClick() {
     console.log(meetETime);
     console.log(oneText);*/
 }
+
+
