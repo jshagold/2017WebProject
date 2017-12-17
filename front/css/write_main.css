@@ -2,7 +2,7 @@ article{
     background-color: #3d3b3b;
 }
 
-form {
+article form {
     margin: auto;
     text-align: center;
 }
@@ -28,11 +28,11 @@ form {
     overflow: hidden;
 }
 
-li {
+article li {
     padding: 0% !important;
 }
 
-h2{
+article h2{
     font-size: 13px;
     float: left;
     width: 30%;
