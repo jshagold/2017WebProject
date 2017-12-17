@@ -11,6 +11,7 @@ section {
     background-color: #3d3b3b;
     transition: 0.5s;
     font-size: 30pt;
+    overflow: hidden;
 }
 .middlespan {
     position: relative;
