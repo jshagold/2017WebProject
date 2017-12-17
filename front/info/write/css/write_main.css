@@ -1,0 +1,42 @@
+article{
+    background-color: #3d3b3b;
+}
+
+article form {
+    margin: auto;
+    text-align: center;
+}
+
+#complete{
+    display: inline-block;
+}
+
+.input-group{
+    float: right;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 65%;
+    height: 50px;
+    line-height: 50px;
+}
+.input-group input {
+    position: relative !important;
+    top: 8px;
+}
+
+.list-group-item {
+    overflow: hidden;
+}
+
+article li {
+    padding: 0% !important;
+}
+
+article h2{
+    font-size: 13px;
+    float: left;
+    width: 30%;
+    margin: 0%;
+    padding: 0%;
+    line-height: 50px;
+}
