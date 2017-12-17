@@ -6,31 +6,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link href="../../css/bootstrap.css" type="text/css" rel="stylesheet" />
     <link href="../../css/form.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="../../js/jquery-3.2.1.js"></script>
-    <script src="../../js/bootstrap.js"></script>
-    <script src="../../js/prototype.js"></script>
-    <script src="../../js/form.js" type="text/javascript"></script>
-    <link href="../../css/write_main.css" type="text/css" rel="stylesheet" />
-    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyD1uztkN8iEP3ExKiSv7SExyr25M7Eye3I",
-            authDomain: "webproject-5349e.firebaseapp.com",
-            databaseURL: "https://webproject-5349e.firebaseio.com",
-            projectId: "webproject-5349e",
-            storageBucket: "webproject-5349e.appspot.com",
-            messagingSenderId: "693189557269"
-        };
-        firebase.initializeApp(config);
-    </script>
-    <script src="../../js/jquery-3.2.1.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script type="text/javascript">
         jQuery.noConflict();
         var j$ = jQuery;
     </script>
+    <script type="text/javascript" src="../../js/prototype.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+    <script src="../../js/form.js" type="text/javascript"></script>
+    <script src="./write.js" type="application/javascript"></script>
+    <link href="./css/write_main.css" type="text/css" rel="stylesheet" />
+
     <title>Write Page</title>
 </head>
 <body>
@@ -42,8 +32,15 @@
     </header>
 
     <aside>
-        <a href="../../login/login.html">로그아웃</a>
-    </aside>
+            <div>
+                <div>
+                    <img id="userimage"/>
+                    <h2 id="username"></h2>
+                    <h3 id="useremail"></h3>
+                </div>
+                <a href="../../login/login.html">로그아웃</a>
+            </div>
+        </aside>
     
     <article>
 
@@ -51,30 +48,30 @@
         <div class="container-fluid">
             <div class="well">
                 <h1><kbd>정보글 등록</kbd></h1>
-                <form action="#" method="post">
+                <form action="../read/read.html" method="post">
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            <h2>음식종류:</h2>
-                            <div class="input-group">
-                                <input type="text" id = menutype class="form-control" placeholder="ex)한식" size="15">
-                            </div>
-                        </li>
                         <li class="list-group-item">
                             <h2>식당이름:</h2>
                             <div class="input-group">
-                                <input type="text" id = res_name class="form-control" placeholder="ex)한우궁" size="15">
+                                <input type="text" id = "res_name" class="form-control" placeholder="ex)한우궁" size="15">
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <h2>음식종류:</h2>
+                            <div class="input-group">
+                                <input type="text" id = "menutype" class="form-control" placeholder="ex)한식" size="15">
                             </div>
                         </li>
                         <li class="list-group-item">
                             <h2>주 메뉴 이름:</h2>
                             <div class="input-group">
-                                <input type="text" id = mainmenu class="form-control" placeholder="ex)육개장" size="15">
+                                <input type="text" id = "mainmenu" class="form-control" placeholder="ex)육개장" size="15">
                             </div>
                         </li>
                         <li class="list-group-item">
                             <h2>가격:</h2>   
                             <div class="input-group">
-                                <input type="text" id = howmuch class="form-control" placeholder="ex)5900" size="15">
+                                <input type="text" id = "howmuch" class="form-control" placeholder="ex)5900" size="15">
                             </div>
                         </li>
                     </ul>
@@ -85,9 +82,7 @@
                     </div>  
                     <br />
                     <div id = "complete">
-                        <a href = "../read/read.html">
-                            <input type="button" class = "btn btn-default" id = "com-button" value="글 작성 완료" />
-                        </a>
+                        <input type="submit" class = "btn btn-default" id = "com-button" value="글 작성 완료" />
                     </div>
                 </form>
             </div>
