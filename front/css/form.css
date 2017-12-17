@@ -20,12 +20,36 @@
 			left: 0%;
 		}
 
-		aside a {
-			font-size: 20pt;
+		aside div {
+			margin: auto;
+			margin-top: 5%;
+			width: 95%;
+			text-align: center;
 			color: #cac8c8;
-			display: block;
+			overflow: hidden;
 		}
-
+		aside div img {
+			width: 200px;
+			height: 200px;
+			background-color: red;
+		}
+		aside div h2, aside div h3 {
+			margin: 0%;
+			width: 100%;
+			height: 50px;
+			font-size: 12pt;
+			line-height: 50px;
+		}
+		aside div h2 {
+			margin-top: 5%;
+			font-size: 20pt;
+		}
+		aside a {
+			margin: auto;
+			width: 100%;
+			font-size: 30pt;
+			color: white;
+		}
 		header {
 			width: 100%;
 			height: 10%;
