@@ -1,107 +1,129 @@
 window.onload = function() {
-    $("#fastbtn").bind("click", FastClick);
-    $("#reservebtn").bind("click", ReserveClick);
+    j$("#fastbtn").bind("click", FastClick);
+    j$("#reservebtn").bind("click", ReserveClick);
 
-    var foodCategory = $(".foodcategory button");
-    for(var i=0; i < foodCategory.length; i++) {
-        $(foodCategory[i]).bind("click", FoodClick);
+    j$("#food").bind("change", FoodClick);
+    j$("#res").bind("change", ResClick);
+    j$("#maxpeople").bind("change", People);
+
+    j$("#meetday").val(new Date().toISOString().slice(0,10));
+    
+    var starthour = new Date().getHours()+1;
+    var endhour = starthour + 1;
+    if(starthour == 24) {
+        starthour = 0;
+    }
+    if(endhour == 24) {
+        endhour = 0;
+    }
+    if(starthour < 10) {
+        j$("#starttime").val("0"+starthour.toString()+":00");
+    }
+    else {
+        j$("#starttime").val(starthour.toString()+":00");
+    }
+    if(endhour < 10) {
+        j$("#endtime").val("0"+endhour.toString()+":00");
+    }
+    else {
+        j$("#endtime").val(endhour.toString()+":00");
     }
     
-    $("#maxpeople").bind("change", PeoplePlace);
-    $("#place").bind("change", PeoplePlace);
-
-    $("#meetday").bind("change", ChangeDay);
-    $("#starttime").bind("change", ChangeDay);
-    $("#endtime").bind("change", ChangeDay);
-    $("#meetday").val(new Date().toISOString().slice(0,10));
-
-    $("form>input").bind("click", MatchClick);
+    j$("form>input").bind("click", MatchClick);
     //$("form>input").attr("disabled", false);
 
-    $(".foodcategory").hide();
-    $(".peoplacategory").hide();
-    $(".rescategory").hide();
-    $(".daycategory").hide();
-    $("form>input").hide();
+    j$(".foodcategory").hide();
+    j$(".peocategory").hide();
+    j$(".rescategory").hide();
+    j$(".daycategory").hide();
+    j$(".textcategory").hide();
+    j$("form>input").hide();
     InitMain();
-    SetPeoPla();
+    SetPeople();
 };
 function InitMatch() {
     InitMain();
 }
 
 function FastClick() {
-    $("#fastbtn").addClass("btnclick");
-    $("#reservebtn").removeClass("btnclick");
-    $(".foodcategory").slideDown();
-    if($(".daycategory").css("display") != "none") {
-        $(".daycategory").slideUp();
-        $("form>input").slideDown();
+    j$("#fastbtn").addClass("btnclick");
+    j$("#reservebtn").removeClass("btnclick");
+    j$(".foodcategory").slideDown();
+    if(j$(".daycategory").css("display") != "none") {
+        j$(".daycategory").slideUp();
+        j$(".textcategory").slideUp();
     }
     //$(".daycategory").slideUp();
 }
 function ReserveClick() {
-    $("#fastbtn").removeClass("btnclick");
-    $("#reservebtn").addClass("btnclick");
-    $(".foodcategory").slideDown();
-    if($("form>input").css("display") != "none") {
-        $(".daycategory").slideDown();
-        $("form>input").slideUp();
-        ChangeDay();
+    j$("#fastbtn").removeClass("btnclick");
+    j$("#reservebtn").addClass("btnclick");
+    j$(".foodcategory").slideDown();
+    if(j$("form>input").css("display") != "none") {
+        j$(".daycategory").slideDown();
+        j$(".textcategory").slideDown();
     }
 }
 function FoodClick() {
-    var foodCategory = $(".foodcategory button");
-    for(var i=0; i < foodCategory.length; i++) {
-        $(foodCategory[i]).removeClass("btnclick");
+    if(j$(this).find(":first-child").text() === "선택해주세요") {
+        j$(this).find(":first-child").remove();
     }
-    $(this).addClass("btnclick");
-    $(".peoplacategory").slideDown();
+    j$(".rescategory").slideDown();
 }
-function SetPeoPla() {
-    var maxPeople = $("#maxpeople");
-    var place = $("#place");
+function ResClick() {
+    if(j$(this).find(":first-child").text() === "선택해주세요") {
+        j$(this).find(":first-child").remove();
+    }
+    j$(".peocategory").slideDown();
+}
+function SetPeople() {
+    var maxPeoples = j$("#maxpeople");
 
     for(var i=2; i <= 6; i++) {
         var maxOption = document.createElement("option");
         maxOption.appendChild(document.createTextNode(i));
-        maxPeople.append(maxOption);
-    }
-    var maxOption = document.createElement("option");
-    maxOption.appendChild(document.createTextNode("상관없음"));
-    maxPeople.append(maxOption);
-}
-
-function PeoplePlace() {
-    if($(this).find(":first-child").text() === "최대인원선택" || 
-        $(this).find(":first-child").text() === "장소선택" ) {
-        $(this).find(":first-child").remove();
-    }
-
-    var maxPeople = $("#maxpeople").find(":first-child").text();
-    var place = $("#place").find(":first-child").text();
-
-    if(maxPeople == 2 && place === "학교앞") {
-        if($("#reservebtn").hasClass("btnclick")) {
-            $(".daycategory").slideDown();
-        }
-        else {
-            $("form>input").slideDown();
-        }
-        $(".rescategory").slideDown();
+        maxPeoples.append(maxOption);
     }
 }
 
-function ChangeDay() {
-    if(!$("#starttime").val() == "" && 
-        !$("#endtime").val() == "" ) {
-            $("form>input").slideDown();
+function People() {
+    if(j$(this).find(":first-child").text() === "선택해주세요") {
+        j$(this).find(":first-child").remove();
+    }
+
+    var maxPeoples = j$("#maxpeople").find(":first-child").text();
+
+    if(maxPeoples == 2) {
+        if(j$("#reservebtn").hasClass("btnclick")) {
+            j$(".daycategory").slideDown();
+            j$(".textcategory").slideDown();
         }
+        j$("form>input").slideDown();
+    }
 }
+
+var maxPeople;
+var restaurant;
+var foodCategory;
+var meetDay;
+var meetSTime;
+var meetETime;
+var oneText;
 
 function MatchClick() {
-    if($("#minprice").val() > $("#maxprice").val() || 
-        $("#starttime").val() > $("#endtime").val()) {
-            
-        }
+    foodCategory = j$("#food").val();
+    restaurant = j$("#res").val();
+    maxPeople = j$("#maxpeople").val();
+    meetDay = j$("#meetday").val();
+    meetSTime = j$("#starttime").val();
+    meetETime = j$("#endtime").val();
+    oneText = j$("#text").val();
+
+    /*console.log(foodCategory);
+    console.log(restaurant);
+    console.log(maxPeople);
+    console.log(meetDay);
+    console.log(meetSTime);
+    console.log(meetETime);
+    console.log(oneText);*/
 }
