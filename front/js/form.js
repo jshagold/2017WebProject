@@ -2,16 +2,19 @@
 var userImage;
 var userName;
 var userEmail;
+var userInfo=null;
 
 window.onload = function () {
 	j$("#asidebtn").bind("click", ToggleAisde);
 	//$("#asidebtn").bind("mouseenter", toggleAisde);
-
 	InitUserInfo();
+	j$("aside a").bind("click",signout);
 };
 
 function InitAside() {
 	j$("#asidebtn").bind("click", ToggleAisde);
+
+	j$("aside a").bind("click",signout);
 
 	InitUserInfo();
 }
@@ -35,11 +38,27 @@ function ToggleAisde() {
 }
 
 function InitUserInfo() {
-	userImage = "./image/maintitle3.png";
-	userName = "강동혁";
-	userEmail = "kdh950812@nate.com"
+	var userstatus = firebase.auth().currentUser;
 
-	j$("#userimage").attr("src", userImage);
-	j$("#username").text(userName);
-	j$("#useremail").text(userEmail);
+	firebase.auth().onAuthStateChanged(function (user) {
+		if (user) {
+		userInfo = user.uid;
+		userName = user.displayName;
+		//console.log(userInfo);
+        // userinfo 보여주기
+        j$('#username').text(user.displayName);
+        j$('#useremail').text(user.email);
+        j$('#userimage').attr("src", user.photoURL);
+        // db업데이트
+        // 데이터바뀔때 리스너
+        
+   		}
+	});
+	
+}
+function signout(){
+    firebase.auth().signOut().then(function(){
+    }, function (error) {
+        alert(error, message);
+    });
 }
