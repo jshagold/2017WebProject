@@ -198,14 +198,68 @@ function MatchClick() {
     sTime = j$("#starttime").val();
     eTime = j$("#endtime").val();
     oneText = j$("#text").val();
-
-    /*console.log(foodCategory);
-    console.log(restaurant);
-    console.log(maxPeople);
-    console.log(meetDay);
-    console.log(meetSTime);
-    console.log(meetETime);
-    console.log(oneText);*/
+    if(j$("#fastbtn").hasClass("btnclick") === true) {
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                var check = 0;
+                firebase.database().ref("/fastMatch/" + user.uid).on("value", function (snapshot) {
+                    if (snapshot.val().fhostuid == user.uid) {
+                        check = 1;
+                    }
+                });
+                if (check == 0) {
+                    firebase.database().ref('/fastMatch/' + user.uid).set({
+                        "fhostname": user.displayName,
+                        "fhostemail": user.email,
+                        "fhostuid": user.uid,
+                        "ffoodCategory": foodCategory,
+                        "frestaurant": restaurant,
+                        "fmaxPeople": maxPeople
+                    });
+                    firebase.database().ref('/fastMatch/' + user.uid + '/fmember/' + user.uid).set({
+                        "fusername": user.displayName,
+                        "femail": user.email
+                    });
+                    alert("방만듬!");
+                }
+                else {
+                    alert("방은 인당 하나다");
+                }
+            }
+        });
+    }
+    else {
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                var check = 0;
+                firebase.database().ref("/lateMatch/" + user.uid).on("value", function (snapshot) {
+                    if (snapshot.val().hostuid == user.uid) {
+                        check = 1;
+                    }
+                });
+                if (check == 0) {
+                    firebase.database().ref('/lateMatch/' + user.uid).set({
+                        "hostname": user.displayName,
+                        "hostemail": user.email,
+                        "hostuid": user.uid,
+                        "foodCategory": foodCategory,
+                        "restaurant": restaurant,
+                        "maxPeople": maxPeople,
+                        "oneText": oneText,
+                        time: {"sTime": sTime, "eTime": eTime}
+                    });
+                    firebase.database().ref('/lateMatch/' + user.uid + '/member/' + user.uid).set({
+                        "username": user.displayName,
+                        "email": user.email
+                    });
+                    alert("방만듬!");
+                }
+                else {
+                    alert("방은 인당 하나다");
+                }
+            }
+        });
+    }
 }
 
 

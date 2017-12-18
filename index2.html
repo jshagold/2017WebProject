@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <!--jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script type="text/javascript" src="./js/jquery-3.2.1.js"></script>
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script type="text/javascript">
         jQuery.noConflict();
         var j$ = jQuery;
@@ -22,7 +21,7 @@
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
     <script src="./js/fireinit.js"></script>
-    <script type="text/javascript" src="./js/index.js"></script>
+    <script type="text/javascript" src="./js/googlesign.js"></script>
     <title>그 밥 사</title>
     <link href="./css/bootstrap.css" type="text/css" rel="stylesheet"/>
     <link href="./css/login.css" type="text/css" rel="stylesheet"/>
@@ -31,16 +30,40 @@
 </head>
 <body>
 
-<header>  <!--위에 공간-->
-    <a href="./index.html"><img src="./front/image/maintitle3.png"></img></a><!--code-->
+<header>
+    <a href="./login.html"><img src="../image/maintitle3.png"></img></a><!--code-->
+    <div>로그인상태:
+        <span id="status">(인증되지않음)</span>
+
+        <ul id="userinfo">
+            <li>ID: <span id="userid"></span></li>
+            <li>메일: <span id="usermail"></span></li>
+            <li>이름: <span id="username"></span></li>
+        </ul>
+    </div>
+    <div>
+        <button id="glogin" type="button">구글인증</button>
+        <button id="glogout" type="button">인증해제</button>
+    </div>
 </header>
 <article>
-    <h1>Log In</h1>
-        <button id="glogin" type="submit"><img src="./front/image/google.png">구글계정으로 로그인</button>
+    <h1>FireBase 테스트!</h1>
+    <div>
+        <p>
+            데이터 베이스 메세지:
+            <span id="dbmessage">(로딩중..)</span>
+        </p>
+    </div>
+
+    <div>
+        <p>현재 접속중인 유저</p>
+        <ol id="onusers"></ol>
+    </div>
+
+    <a href="matchlist.html">매칭 리스트로</a>
 </article>
 
-<footer><!--밑에 공간-->
-    <!--code-->
+<footer>
 </footer>
 
 </body>
