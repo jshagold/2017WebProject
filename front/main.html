@@ -8,23 +8,28 @@
     <link href="./css/form.css" type="text/css" rel="stylesheet" />
     <link href="./css/main.css" type="text/css" rel="stylesheet" />
     <link href="./css/match.css" type="text/css" rel="stylesheet" />
-    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyD1uztkN8iEP3ExKiSv7SExyr25M7Eye3I",
-            authDomain: "webproject-5349e.firebaseapp.com",
-            databaseURL: "https://webproject-5349e.firebaseio.com",
-            projectId: "webproject-5349e",
-            storageBucket: "webproject-5349e.appspot.com",
-            messagingSenderId: "693189557269"
-        };
-        firebase.initializeApp(config);
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script src="./js/jquery-3.2.1.js" type="text/javascript"></script>
     <script type="text/javascript">
         jQuery.noConflict();
         var j$ = jQuery;
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyDOsNyhwjqzdLv-hez3kMjOfl6Yqhcbh_k",
+            authDomain: "project-7dc1d.firebaseapp.com",
+            databaseURL: "https://project-7dc1d.firebaseio.com",
+            projectId: "project-7dc1d",
+            storageBucket: "",
+            messagingSenderId: "862735899542"
+        };
+        firebase.initializeApp(config);
     </script>
     <script src="./js/prototype.js"></script>
     <script src="./js/bootstrap.js"></script>
@@ -49,7 +54,7 @@
                 <h2 id="username"></h2>
                 <h3 id="useremail"></h3>
             </div>
-            <a href="./login/login.html">로그아웃</a>
+            <a href="../index.html">로그아웃</a>
         </div>
     </aside>
 

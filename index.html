@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-3.2.1.js"></script>
+
+    <script type="text/javascript">
+        jQuery.noConflict();
+        var j$ = jQuery;
+    </script>
+    <!--prototype-->
+    <script type="text/javascript" src="./js/prototype.js"></script>
+    <!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-messaging.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyDOsNyhwjqzdLv-hez3kMjOfl6Yqhcbh_k",
+            authDomain: "project-7dc1d.firebaseapp.com",
+            databaseURL: "https://project-7dc1d.firebaseio.com",
+            projectId: "project-7dc1d",
+            storageBucket: "",
+            messagingSenderId: "862735899542"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript" src="./js/index.js"></script>
+    <title>그 밥 사</title>
+    <link href="./css/bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link href="./css/login.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<body>
+
+<header>  <!--위에 공간-->
+    <a href="./index.html"><img src="./front/image/maintitle3.png"></img></a><!--code-->
+</header>
+<article>
+    <h1>Log In</h1>
+        <button id="glogin" type="submit"><img src="./front/image/google.png">구글계정으로 로그인</button>
+</article>
+
+<footer><!--밑에 공간-->
+    <!--code-->
+</footer>
+
+</body>
+</html>
